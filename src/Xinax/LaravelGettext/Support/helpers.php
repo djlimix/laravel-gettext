@@ -12,7 +12,7 @@ if (!function_exists('_i')) {
      *
      * @return string the message translated and formatted
      */
-    function _i($message, $args = null)
+    function _i($message, $args = [])
     {
 
         $translator  = app(LaravelGettext::class);
@@ -49,7 +49,7 @@ if (!function_exists('__')) {
      *
      * @return string the message translated and formatted
      */
-    function __($message, $args = null)
+    function __($message, $args = [])
     {
         return _i($message, $args);
     }
@@ -63,7 +63,7 @@ if (!function_exists('_')) {
      *
      * @return mixed
      */
-    function _($message, $args = null)
+    function _($message, $args = [])
     {
         return _i($message, $args);
     }
@@ -81,7 +81,7 @@ if (!function_exists('_n')) {
      *
      * @return string the message translated, pluralized and formatted
      */
-    function _n($singular, $plural, $count, $args = null)
+    function _n($singular, $plural, $count, $args = [])
     {
         $translator = app(LaravelGettext::class);
         $message    = $translator->translatePlural($singular, $plural, $count);
@@ -109,7 +109,7 @@ if (!function_exists('_s')) {
      *
      * @return string the message translated, pluralized and formatted
      */
-    function _s($message, $count, $args = null)
+    function _s($message, $count, $args = [])
     {
         $translator = app(LaravelGettext::class);
         $message    = $translator->getTranslator()->translatePluralInline($message, $count);
